@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" type="image/png" href="data:image/png;base64,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" sizes="64x64">
+</head>
+<body>
+ <!-- navbar    -->
+ <div class="navbar-section">
+<nav>
+   <div class="img">
+    <img src="img/myntra-logo.png" alt="Myntra-logo">
+   </div>
+    <ul class="navlist">
+        <li><a href="#">MEN</a></li>
+        <li><a href="#">WOMEN</a></li>
+        <li><a href="#">KIDS</a></li>
+        <li><a href="#">HOME & LIVING</a></li>
+        <li><a href="#">BEAUTY</a></li>
+        <li><a href="#">STUDIO</a></li>
+    </ul>
+   <div class="input-search">
+    <input type="type" placeholder="Search for products, brands and more"> <i class="fa-solid fa-magnifying-glass" style="color: #b7b9bd;"></i>
+</div>
+    <ul class="navlist">
+        <li>
+            <a href="#">Profile</a>
+        </li>
+        <li>
+            <a href="#">Wishlist</a>
+        </li>
+        <li>
+            <a href="#">Bag</a>
+        </li>
+    </ul>
+</nav>
+</div>
+<!-- bg-section -->
+<div class="bg-section">
+    <img src="img/bg-main.png" alt="bg-main">
+</div>
+<!-- heading section  -->
+<div class="heading-section">
+    <img src="img/heading.webp" alt="heading">
+    <div class="row">
+        <div class="col">
+            <img src="img/1.webp" alt="img-1">
+        </div>
+        <div class="col">
+            <img src="img/2.webp" alt="img-2">
+        </div>
+        <div class="col">
+            <img src="img/3.webp" alt="img-3">
+        </div>
+        <div class="col">
+            <img src="img/4.webp" alt="img-4">
+        </div>
+        <div class="col">
+            <img src="img/5.webp" alt="img-5" id="img-5">
+        </div>
+        <div class="col">
+            <img src="img/6.webp" alt="img-6">
+        </div>
+        <div class="col">
+            <img src="img/7.webp" alt="img-7">
+        </div>
+
+        <div class="col">
+            <img src="img/8.webp" alt="img-8">
+        </div>
+        <div class="col">
+            <img src="img/9.webp" alt="img-9">
+        </div>
+        <div class="col">
+            <img src="img/10.webp" alt="img-10">
+        </div>
+        <div class="col">
+            <img src="img/11.webp" alt="img-11">
+        </div>
+        <div class="col">
+            <img src="img/12.webp" alt="img-12">
+        </div>
+        <div class="col">
+            <img src="img/13.webp" alt="img-13">
+        </div>
+        <div class="col">
+            <img src="img/14.webp" alt="img-14">
+        </div>
+        <div class="col">
+            <img src="img/15.webp" alt="img-15">
+        </div>
+        <div class="col">
+            <img src="img/16.webp" alt="img-16">
+        </div>
+        <div class="col">
+            <img src="img/17.webp" alt="img-17">
+        </div>
+        <div class="col">
+            <img src="img/18.webp" alt="img-18">
+        </div>
+        <div class="col">
+            <img src="img/19.webp" alt="img-19">
+        </div>
+        <div class="col">
+            <img src="img/20.webp" alt="img-20">
+        </div>
+
+
+    </div>
+</div>
+<!-- heading-2 section  -->
+<div class="heading-section">
+    <img src="img/heading-2.webp" alt="heading">
+    <div class="row row-grid">
+        <div class="col">
+            <img src="img/21.webp" alt="img-1">
+        </div>
+        <div class="col">
+            <img src="img/22.webp" alt="img-2">
+        </div>
+        <div class="col">
+            <img src="img/23.webp" alt="img-3">
+        </div>
+        <div class="col">
+            <img src="img/24.webp" alt="img-4">
+        </div>
+        <div class="col">
+            <img src="img/25.webp" alt="img-5" >
+        </div>
+        <div class="col">
+            <img src="img/26.webp" alt="img-6">
+        </div>
+        <div class="col">
+            <img src="img/27.webp" alt="img-7">
+        </div>
+
+        <div class="col">
+            <img src="img/28.webp" alt="img-8">
+        </div>
+        <div class="col">
+            <img src="img/29.webp" alt="img-9">
+        </div>
+        <div class="col">
+            <img src="img/30.webp" alt="img-10">
+        </div>
+        <div class="col">
+            <img src="img/31.webp" alt="img-11">
+        </div>
+        <div class="col">
+            <img src="img/32.webp" alt="img-12">
+        </div>
+        <div class="col">
+            <img src="img/33.webp" alt="img-13">
+        </div>
+        <div class="col">
+            <img src="img/24.webp" alt="img-14" >
+        </div>
+        <div class="col">
+            <img src="img/5.webp" alt="img-15" id="img-5">
+        </div>
+        <div class="col">
+            <img src="img/16.webp" alt="img-16">
+        </div>
+        <div class="col">
+            <img src="img/17.webp" alt="img-17">
+        </div>
+        <div class="col">
+            <img src="img/18.webp" alt="img-18">
+        </div>
+        <div class="col">
+            <img src="img/19.webp" alt="img-19">
+        </div>
+        <div class="col">
+            <img src="img/20.webp" alt="img-20">
+        </div>
+
+
+    </div>
+</div>
+<!-- heading-3 section  -->
+<div class="heading-section">
+    <img src="img/heading-3.webp" alt="heading">
+    <div class="row row-grid">
+        <div class="col">
+            <img src="img/21.webp" alt="img-1">
+        </div>
+        <div class="col">
+            <img src="img/22.webp" alt="img-2">
+        </div>
+        <div class="col">
+            <img src="img/23.webp" alt="img-3">
+        </div>
+        <div class="col">
+            <img src="img/24.webp" alt="img-4">
+        </div>
+        <div class="col">
+            <img src="img/25.webp" alt="img-5" >
+        </div>
+        <div class="col">
+            <img src="img/26.webp" alt="img-6">
+        </div>
+        <div class="col">
+            <img src="img/27.webp" alt="img-7">
+        </div>
+
+        <div class="col">
+            <img src="img/28.webp" alt="img-8">
+        </div>
+        <div class="col">
+            <img src="img/29.webp" alt="img-9">
+        </div>
+        <div class="col">
+            <img src="img/30.webp" alt="img-10">
+        </div>
+        <div class="col">
+            <img src="img/31.webp" alt="img-11">
+        </div>
+        <div class="col">
+            <img src="img/32.webp" alt="img-12">
+        </div>
+        <div class="col">
+            <img src="img/33.webp" alt="img-13">
+        </div>
+        <div class="col">
+            <img src="img/24.webp" alt="img-14" >
+        </div>
+        <div class="col">
+            <img src="img/5.webp" alt="img-15" id="img-5">
+        </div>
+        <div class="col">
+            <img src="img/16.webp" alt="img-16">
+        </div>
+        <div class="col">
+            <img src="img/17.webp" alt="img-17">
+        </div>
+        <div class="col">
+            <img src="img/18.webp" alt="img-18">
+        </div>
+        <div class="col">
+            <img src="img/19.webp" alt="img-19">
+        </div>
+        <div class="col">
+            <img src="img/20.webp" alt="img-20">
+        </div>
+
+
+    </div>
+</div>
+<!-- heading-4 section  -->
+<div class="heading-section">
+    <img src="img/heading-4.webp" alt="heading">
+    <div class="row-flex">
+        <div class="col">
+            <img src="img/heading-4-1.webp" alt="img-1">
+        </div>
+        <div class="col">
+            <img src="img/heading-4-2.webp" alt="img-2">
+        </div>
+        <div class="col">
+            <img src="img/heading-4-3.webp" alt="img-3">
+        </div>
+        <div class="col">
+            <img src="img/heading-4-4.webp" alt="img-4">
+        </div>
+        <div class="col">
+            <img src="img/heading-4-5.webp" alt="img-5" >
+        </div>
+        <div class="col">
+            <img src="img/heading-4-6.webp" alt="img-6">
+        </div>
+        <div class="col">
+            <img src="img/heading-4-7.webp" alt="img-7">
+        </div>
+
+        <div class="col">
+            <img src="img/heading-4-8.webp" alt="img-8">
+        </div>
+        <div class="col">
+            <img src="img/heading-4-9.webp" alt="img-9">
+        </div>
+        <div class="col">
+            <img src="img/heading-4-10.jpeg" alt="img-10">
+        </div>
+        
+
+
+    </div>
+</div>
+<!-- heading-5 section  -->
+<div class="heading-section">
+    <img src="img/heading-5.webp" alt="heading">
+    <div class="row-grid-6">
+        <div class="col">
+            <img src="img/heading-5-1.webp" alt="img-1">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-2.jpg" alt="img-2">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-3.webp" alt="img-3">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-4.webp" alt="img-4">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-5.webp" alt="img-5" >
+        </div>
+        <div class="col">
+            <img src="img/heading-5-6.jpg" alt="img-6">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-7.webp" alt="img-7">
+        </div>
+
+        <div class="col">
+            <img src="img/heading-5-8.webp" alt="img-8">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-9.webp" alt="img-9">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-10.webp" alt="img-10">
+        </div>
+        
+        <div class="col">
+            <img src="img/heading-5-11.webp" alt="img-1">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-12.webp" alt="img-2">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-13.webp" alt="img-3">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-14.webp" alt="img-4">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-15.webp" alt="img-5" >
+        </div>
+        <div class="col">
+            <img src="img/heading-5-16.webp" alt="img-6">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-17.webp" alt="img-7">
+        </div>
+
+        <div class="col">
+            <img src="img/heading-5-18.webp" alt="img-8">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-19.webp" alt="img-9">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-20.webp" alt="img-10">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-21.jpg" alt="img-1">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-23.webp" alt="img-2">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-23.webp" alt="img-3">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-18.webp" alt="img-4">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-7.webp" alt="img-5" >
+        </div>
+        <div class="col">
+            <img src="img/heading-5-26.webp" alt="img-6">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-27.webp" alt="img-7">
+        </div>
+
+        <div class="col">
+            <img src="img/heading-5-28.webp" alt="img-8">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-29.webp" alt="img-9">
+        </div>
+        <div class="col">
+            <img src="img/heading-5-12.webp" alt="img-10">
+        </div>
+       
+       
+    </div>
+</div>
+<!-- col-center image -->
+<div class="col-center">
+    <img src="img/center-col.png" alt="img-11">
+   </div>
+
+   <!-- footer section  -->
+   <div class="footer-section">
+    <div class="row-flex row-between">
+        <div class="col-3 width-3">
+            <h5>ONLINE SHOPPING</h5>
+            <h6>Men</h6>
+            <h6>Women</h6>
+            <h6>Kids</h6>
+            <h6>Home & Living</h6>
+            <h6>Beauty</h6>
+            <h6>Gift Cards</h6>
+            <h6>Myntra Insider</h6>
+            <h5>USEFUL LINKS</h5>
+            <h6>Blog</h6>
+            <h6>Careers</h6>
+            <h6>Site Map</h6>
+            <h6>Corporate Information</h6>
+            <h6>Whitehat</h6>
+           
+        </div>
+        <div class="col-3 col-3-width">
+            <h5>CUSTOMER POLICIES</h5>
+            <h6>Contact Us</h6>
+            <h6>FQA</h6>
+            <h6>T&C</h6>
+            <h6>Team Of Use</h6>
+            <h6>Track orders</h6>
+            <h6>Shipping</h6>
+            <h6>Cancellation</h6>
+            <h6>Returns</h6>
+            <h6>Privacy policy</h6>
+            <h6>Grievance Officer</h6>
+            </div>
+            <div class="col-3 col-3-width-2">
+                <h5>EXPERIENCE MYNTRA APP ON MOBILE</h5>
+             <div class="btn">
+                <img src="img/btn-google-store.png" alt="google store" class="google-btn">
+                <img src="img/btn-app-store.png" alt="app store">
+             </div>
+             <h5>KEEP IN TOUCH</h5>
+             <div class="logo">
+                <img src="img/facebook.png" alt="facebook" class="width">
+                <img src="img/twitter.png" alt="twitter" class="width">
+                <img src="img/youtube.png" alt="youtube" class="width-youtube">
+                <img src="img/insta.png" alt="instagram" class="width-insta">
+             </div>
+
+                </div>
+                <div class="col-3">
+                    <div class="original">
+                        <img src="img/original-logo.png" alt="original-logo" id="original-logo">
+                        <h5 class="original-font"><span class="org-black">100% ORIGINAL</span><span> guarantee for all products at myntra.com</span></h5>
+                    </div>
+                    <div class="return">
+                        <img src="img/return-logo.png" alt="return-logo" id="return-logo">
+                        <h5 class="return-font"><span class="return-black">Return within 14 days</span><span> of receiving your order</span></h5>
+                    </div>
+                </div>
+    </div>
+
+   </div>
+  <div class="footer-section">
+    <div class="content row-between">
+    <p class="popular-search">
+       
+Makeup | Dresses For Girls |  T-Shirts | Sandals|  Headphones  |Babydolls | Blazers For Men | Handbags | Ladies Watches | Bags | Sport Shoes | Reebok Shoes | Puma Shoes|  Boxers | Wallets|  Tops|  Earrings | Fastrack Watches | Kurtis | Nike|  Smart| Watches | Titan Watches | Designer Blouse | Gowns | Rings  Cricket Shoes | Forever 21 | Eye Makeup | Photo Frames | Punjabi |Suits  Bikini | Myntra Fashion Show|  Lipstick|  Saree  Watches | Dresses  |Lehenga|  Nike Shoes|  Goggles | Bras  Suit  Chinos  |Shoes  |Adidas Shoes | Woodland Shoes | Jewellery|  Designers |Sarees|
+    </p>
+  </div>
+  <div class="row-flex row-between row-space">
+    <p>In case of any concern, <span class="contact">Contact Us</span></p>
+    <p>© 2023 www.myntra.com. All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html>
